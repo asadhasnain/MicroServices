@@ -24,6 +24,8 @@ Welcome to the Kafka Architectural Team repository. This project provides resour
      docker-compose up -d
     ```
 
+    To view the kafka Dashboard: http://localhost:8080/
+
 3. Run the order and inventory service
 
     Run Order microservice:

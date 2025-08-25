@@ -4,7 +4,7 @@ import { sendToDLQ } from "./producer";
 
 const kafka = new Kafka({
   clientId: "inventory-service",
-  brokers: ["localhost:9092"],
+  brokers: ["localhost:9094"],
 });
 
 export const consumer = kafka.consumer({ groupId: "inventory-group" });
