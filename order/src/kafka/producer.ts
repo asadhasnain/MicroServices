@@ -23,7 +23,7 @@ export async function publishOrderCreatedEvent(order: any) {
           value: JSON.stringify({
             action: "update",
             data: { id: order.productId, quantity: order.quantity },
-            correlationId: "order-1234",
+            correlationId: order.id,
           }),
       },
     ],

@@ -1,6 +1,6 @@
 import { Kafka } from "kafkajs";
 import { createItem, deleteItem, updateItem } from "../services/InventoryService";
-import { sendToDLQ } from "./producer";
+import { sendOrderStatus, sendToDLQ } from "./producer";
 
 const kafka = new Kafka({
   clientId: "inventory-service",
@@ -29,6 +29,7 @@ export async function initConsumer() {
           case "update":
             updateItem(msg.data.id, msg.data);
             console.log("✅ Item updated:", msg.data);
+            sendOrderStatus(message.key ? message.key.toString() : msg.data.id.toString(), "CONFIRMED");
             break;
 
           case "delete":

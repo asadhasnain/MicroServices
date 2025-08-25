@@ -37,3 +37,16 @@ catch(error)
 
   console.warn("⚠️ Sent message to DLQ:", { msg });
 }
+
+export async function sendOrderStatus(orderId: string, status: string) {
+  await producer.send({
+    topic: "order-status",
+    messages: [
+      {
+        key: orderId,
+        value: JSON.stringify({ orderId, status }),
+      },
+    ],
+  });
+  console.log(`📤 Sent order status update: { orderId: ${orderId}, status: ${status} }`);
+}

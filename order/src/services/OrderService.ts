@@ -28,6 +28,16 @@ export class OrderService {
     return orders.find(o => o.id === id);
   }
 
+  static async updateOrderStatus(id: string, status: "CONFIRMED" | "PENDING" | "CANCELLED" = "CONFIRMED"): Promise<Order | undefined> {
+    const order = orders.find(o => o.id === id);
+    if (order) {
+      order.status = status;
+    }
+    console.log(id, status);
+    return order;
+  }
+
+
   static async cancelOrder(id: string): Promise<Order | undefined> {
     const order = orders.find(o => o.id === id);
     if (order) {
