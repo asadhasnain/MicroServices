@@ -42,6 +42,13 @@ Welcome to the Kafka Architectural Team repository. This project provides resour
      npm run dev
     ```
 
+    Run Gateway:
+
+    ```bash
+     cd gateway
+     npm run dev
+    ```
+
 ## Contributing
 
 We welcome contributions! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
