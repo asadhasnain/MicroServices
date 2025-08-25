@@ -1,0 +1,22 @@
+### Get all order
+GET http://localhost:3001/api/order
+Accept: application/json
+
+### Create Order
+POST http://localhost:3001/api/order
+Content-Type: application/json
+{
+  "productId": 1,
+  "quantity": 12
+}
+
+### Get Order by Id
+GET http://localhost:3001/api/order/ea9e370d-47de-400e-aafe-43bc9295e976
+Accept: application/json
+
+
+### Cancel Order by Id
+PATCH http://localhost:3001/api/order/ea9e370d-47de-400e-aafe-43bc9295e976/cancel
+Accept: application/json
+
+

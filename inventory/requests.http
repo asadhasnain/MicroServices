@@ -1,0 +1,38 @@
+### Get all inventory
+GET http://localhost:3002/api/inventory
+Accept: application/json
+
+
+### Get inventory by Id
+GET http://localhost:3002/api/inventory/2
+Accept: application/json
+
+### Create Inventory
+POST http://localhost:3002/api/inventory
+Content-Type: application/json
+
+{
+  "id": 4,
+  "name": "Shampoo",
+  "quantity": 10,
+  "price": 1100
+}
+
+### Update Inventory
+PUT http://localhost:3002/api/inventory/1
+Content-Type: application/json
+
+{
+  "id": 4,
+  "name": "Shampoo Herbal",
+  "quantity": 10,
+  "price": 1100
+}
+
+
+
+### Delete Inventory by Id
+DELETE http://localhost:3002/api/inventory/4
+Accept: application/json
+
+
