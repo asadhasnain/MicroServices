@@ -13,7 +13,7 @@ export async function initProducer() {
 }
 
 // ✅ Send DLQ message helper
-export async function sendToDLQ(order: any, error: string) {
+export async function sendToDLQ(msg: any, error: string) {
 
 try{
   await producer.send({
@@ -22,7 +22,7 @@ try{
       {
         key: "InventoryDLQ",
         value: JSON.stringify({
-          order,
+          msg,
           error,
           timestamp: new Date().toISOString(),
         }),
@@ -35,5 +35,5 @@ catch(error)
     console.log("❌ Error sending message to DLQ:", error);
 }
 
-  console.warn("⚠️ Sent message to DLQ:", { order });
+  console.warn("⚠️ Sent message to DLQ:", { msg });
 }

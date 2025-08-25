@@ -1,5 +1,5 @@
 import { Kafka } from "kafkajs";
-import { updateItem } from "../services/InventoryService";
+import { createItem, deleteItem, updateItem } from "../services/InventoryService";
 import { sendToDLQ } from "./producer";
 
 const kafka = new Kafka({
@@ -15,14 +15,14 @@ export async function initConsumer() {
 
   await consumer.run({
     eachMessage: async ({ topic, partition, message }) => {
-    const order = JSON.parse(message.value!.toString());
+     const msg = JSON.parse(message.value!.toString());
      try {
-        const msg = JSON.parse(message.value!.toString());
+       
         console.log(`📦 Inventory Service received:`, msg);
 
         switch (msg.action) {
           case "create":
-           //  createItem(msg.data);
+            createItem(msg.data);
             console.log("✅ Item created:", msg.data);
             break;
 
@@ -32,7 +32,7 @@ export async function initConsumer() {
             break;
 
           case "delete":
-            // deleteItem(msg.data.id);
+            deleteItem(msg.data.id);
             console.log("✅ Item deleted:", msg.data.id);
             break;
 
@@ -41,7 +41,7 @@ export async function initConsumer() {
         }
     } catch (err: any) {
       console.error(err.message);
-      await sendToDLQ(order, (err instanceof Error ? err.toString() : String(err)));
+      await sendToDLQ(msg, (err instanceof Error ? err.toString() : String(err)));
     } finally {
         // ✅ Always commit offset (no retries ever)
         await consumer.commitOffsets([

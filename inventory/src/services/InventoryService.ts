@@ -13,7 +13,7 @@ export const getItemById = (id: number): InventoryItem | undefined => {
   return inventory.find(item => item.id === id);
 };
 
-export const addItem = (item: InventoryItem): InventoryItem => {
+export const createItem = (item: InventoryItem): InventoryItem => {
   inventory.push(item);
   return item;
 };

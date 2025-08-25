@@ -19,7 +19,7 @@ export const getItem = (req: Request, res: Response): void => {
 
 export const createItem = (req: Request, res: Response): void => {
   const { id, name, quantity, price } = req.body;
-  const newItem = inventoryService.addItem({ id, name, quantity, price });
+  const newItem = inventoryService.createItem({ id, name, quantity, price });
   res.status(201).json(newItem);
 };
 
