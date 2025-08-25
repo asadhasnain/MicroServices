@@ -1,0 +1,67 @@
+### Get Health
+GET http://localhost:3000/health
+Accept: application/json
+
+
+### Get all order
+GET http://localhost:3000/order
+Accept: application/json
+
+### Create Order
+POST http://localhost:3000/order
+Content-Type: application/json
+
+{
+  "productId": 1,
+  "quantity": 1
+}
+
+### Get Order by Id
+GET http://localhost:3000/order/ea9e370d-47de-400e-aafe-43bc9295e976
+Accept: application/json
+
+
+### Cancel Order by Id
+PATCH http://localhost:3000/order/ea9e370d-47de-400e-aafe-43bc9295e976/cancel
+Accept: application/json
+
+
+
+
+### Get all inventory
+GET http://localhost:3000/inventory
+Accept: application/json
+
+
+### Get inventory by Id
+GET http://localhost:3000/inventory/2
+Accept: application/json
+
+### Create Inventory
+POST http://localhost:3000/inventory
+Content-Type: application/json
+
+{
+  "id": 4,
+  "name": "Shampoo",
+  "quantity": 10,
+  "price": 1100
+}
+
+### Update Inventory
+PUT http://localhost:3000/inventory/1
+Content-Type: application/json
+
+{
+  "id": 4,
+  "name": "Shampoo Herbal",
+  "quantity": 10,
+  "price": 1100
+}
+
+
+
+### Delete Inventory by Id
+DELETE http://localhost:3000/inventory/4
+Accept: application/json
+
