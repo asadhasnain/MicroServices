@@ -16,14 +16,28 @@ Welcome to the Kafka Architectural Team repository. This project provides resour
     git clone <repository-url>
     ```
 
-2. Review the documentation and setup guides.
-
-3. Run Kafka
+2. Run Kafka
 
     Run Kafka docker container
 
     ```bash
      docker-compose up -d
+    ```
+
+3. Run the order and inventory service
+
+    Run Order microservice:
+
+    ```bash
+     cd order
+     npm run dev
+    ```
+
+    Run Inventory microservice:
+
+    ```bash
+     cd inventory
+     npm run dev
     ```
 
 ## Contributing
