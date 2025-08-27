@@ -16,7 +16,7 @@ Welcome to the Kafka Architectural Team repository. This project provides resour
     git clone <repository-url>
     ```
 
-2. Run Kafka
+2. Run Kafka, kafka ui and keycloak 
 
     Run Kafka docker container
 
