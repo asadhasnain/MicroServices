@@ -1,0 +1,28 @@
+### Public client (e.g., SPA or mobile app) with Resource Owner Password Credentials Grant
+POST /realms/api-gateway-realm/protocol/openid-connect/token HTTP/1.1
+Host: localhost:8080
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 102
+
+grant_type=password&client_id=public-client&scope=email%20openid&username=asad%40test.com&password=123
+
+
+### Confidential backend service to service client
+
+POST /realms/api-gateway-realm/protocol/openid-connect/token HTTP/1.1
+Host: localhost:8080
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 119
+
+grant_type=client_credentials&client_id=confidential-client&client_secret=VUnoaF3p3Flbb9vJzaJ8ZXKyhixEfuF4&scope=openid
+
+
+### Refresh Token
+### Note: Use the refresh token you received from the first request or second
+
+POST /realms/api-gateway-realm/protocol/openid-connect/token HTTP/1.1
+Host: localhost:8080
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 792
+
+grant_type=refresh_token&client_id=public-client&refresh_token=eyJhbGciOiJIUzUxMiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJmMDFmYjc4Mi0wNDIyLTRhZjYtOTQzYy03YTg5YzQ3MjFjZjYifQ.eyJleHAiOjE3NTYyODMwMjEsImlhdCI6MTc1NjI4MTIyMSwianRpIjoiNDk4NWE5ZDMtYjU4NC00YzY5LTg2OTYtNmVkMTMxOWNiNTI3IiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL3JlYWxtcy9hcGktZ2F0ZXdheS1yZWFsbSIsImF1ZCI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODA4MC9yZWFsbXMvYXBpLWdhdGV3YXktcmVhbG0iLCJzdWIiOiJjMDYzM2VjNC1hYmVhLTQwZGEtOTc0Yi1lNGJiOGFkZjkzY2EiLCJ0eXAiOiJSZWZyZXNoIiwiYXpwIjoicHVibGljLWNsaWVudCIsInNlc3Npb25fc3RhdGUiOiI2Y2I3ZjMzYS02ZjdmLTQ4OTktOTNkMi1mODlmYjU1MGM2ZGIiLCJzY29wZSI6Im9wZW5pZCBlbWFpbCBwcm9maWxlIiwic2lkIjoiNmNiN2YzM2EtNmY3Zi00ODk5LTkzZDItZjg5ZmI1NTBjNmRiIn0.-nZawzJn6oh99MSBaqpVCa0mJ5FB-YigJQsPJlOl7MawZkrS99YFPLZPv5wmRum23toyjlChYcU44_aFMjTqhw
